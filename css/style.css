@@ -1,16 +1,13 @@
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
 }
 
 .invisible {
@@ -24,42 +21,49 @@ h1 {
   grid-auto-flow: dense;
 }
 
-
 .grid__el {
   padding: 15px 25px;
   text-align: center;
   border: 1px solid black;
 }
 
-
-.grid__el.grid__el1 {
+.grid__el1 {
   grid-column: 1/4;
 }
 
-.grid__el.grid__el2 {
+.grid__el2 {
   background-color: blue;
+  grid-column: 1/2;
 }
 
-.grid__el.grid__el3 {
+.grid__el3 {
   border: 1px dashed black;
   background-color: red;
 }
 
-.grid__el.grid__el4 {
+.grid__el4 {
   background-color: darkmagenta;
 }
 
-.grid__el.grid__el5 {
+.grid__el5 {
   grid-column: 1/2;
 }
 
-.grid__el.grid__el6 {
+.grid__el6 {
   grid-column: 2/4;
+}
+
+.grid-third {
+  grid-column: 2/3;
 }
 
 
 @media (max-width: 768px) {
   .grid__el.grid__el1, .grid__el.grid__el2, .grid__el.grid__el3, .grid__el.grid__el4, .grid__el.grid__el5, .grid__el.grid__el6 {
     grid-column: 1/2;
+  }
+
+  .grid-third {
+    grid-row: 3/4;
   }
 }

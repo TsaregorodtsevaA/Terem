@@ -1,24 +1,22 @@
 const form = document.getElementById('form');
 const container = document.querySelector('.container');
-const dataOnPage = document.createElement('p');
+const dataOnPage = document.querySelector('.data');
 
-form.addEventListener('submit', function sentData(event) {
+async function getRequest() {
+  let response = await fetch('js/info.json');
+  await response.ok ? alert(await response.statusText) & form.reset() : alert(await response.statusText);
+};
+
+function sentData(event) {
   event.preventDefault();
-  const data = new FormData(form);
+  const data = new FormData(this);
   const dataObj = {};
   data.forEach(function (value, key) {
     dataObj[key] = value;
     });
   const dataJson = JSON.stringify(dataObj);
   dataOnPage.textContent = dataJson;
-  form.reset();
-  container.append(dataOnPage);
-  getRequest()
-})
+  getRequest();
+};
 
-async function getRequest() {
-  let response = await fetch('js/info.json');
-  await response.ok ? alert(await response.statusText) : alert(await response.statusText)
-}
-
-
+form.addEventListener('submit', sentData);
