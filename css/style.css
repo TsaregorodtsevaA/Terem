@@ -1,13 +1,9 @@
-html {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .invisible {
@@ -19,9 +15,10 @@ html {
   gap: 10px;
   grid-auto-rows: 1fr;
   grid-auto-flow: dense;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid__el {
+.grid div {
   padding: 15px 25px;
   text-align: center;
   border: 1px solid black;
@@ -33,7 +30,6 @@ html {
 
 .grid__el2 {
   background-color: blue;
-  grid-column: 1/2;
 }
 
 .grid__el3 {
@@ -59,8 +55,8 @@ html {
 
 
 @media (max-width: 768px) {
-  .grid__el.grid__el1, .grid__el.grid__el2, .grid__el.grid__el3, .grid__el.grid__el4, .grid__el.grid__el5, .grid__el.grid__el6 {
-    grid-column: 1/2;
+  .grid__el1, .grid__el2, .grid__el3, .grid__el4, .grid__el5, .grid__el6 {
+    grid-column: 1/4;
   }
 
   .grid-third {
