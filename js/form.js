@@ -1,17 +1,15 @@
 const form = document.getElementById('form');
 const dataOnPage = document.querySelector('.data');
 
+
 async function getRequest(data) {
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
-  xhr.send(data);
-  xhr.onload = function() {
-    if (xhr.status != 200) {
-      alert(`Ошибка`);
-    } else {
-      alert(`Готово, данные отправились`);
-    }
-  };
+  let url = `https://jsonplaceholder.typicode.com/posts?name=${data.name}&surname=${data.surname}&one=${data.select1}&two=${data.select2}&three=${data.select3}&four=${data.select4}&five=${data.select5}`;
+  let response = await fetch(url);
+  if (!response.ok) {
+    alert(`Ошибка`);
+  } else {
+    alert(`Готово, данные отправились`);
+  }
 }
 
 
